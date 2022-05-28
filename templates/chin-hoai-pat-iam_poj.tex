@@ -1,0 +1,450 @@
+%! TeX program = lualatex
+\documentclass{article}
+
+%设置页边距
+\usepackage[top=0.6in , bottom =0.7in , left=0.2in , right =0.2in]{geometry}
+% \usepackage[paper=landscape,pagesize]{typearea}
+
+\usepackage{luacode}
+%\usepackage[cwttf]{luatexja-zhfonts}
+%%% 適合中文的行間距。
+\renewcommand{\baselinestretch}{1.4}
+%%% 消除中文問號及驚嘆號後面多餘的空白。
+\def\exsp#1{\unskip#1\hspace{0em}}
+\begin{luacode}
+function dosub(s)
+  s = string.gsub(s, '！', '\\exsp！')
+  s = string.gsub(s, '？', '\\exsp？')
+  return(s)
+end
+\end{luacode}
+\AtBeginDocument{%
+  \luaexec{luatexbase.add_to_callback("process_input_buffer", dosub, "dosub")}%
+}
+
+
+% 當 LuaTeX-ja ，無「日文」可對映至「漢文」時，仍可顯示「中文」字形
+\usepackage{luatexja-fontspec}
+% 明體
+\setmainjfont{I.Ming-7.01.ttf}
+% 黑體
+% \setmainjfont{Noto Sans TC}
+% 方音符號用
+% \newfontfamily\ZhuYin{BopomofoRuby1909-v1-Regular.ttf}
+% 白話字注音用
+\newfontfamily\ZhuYin{TaigiGenWanM-KN-L}
+
+\usepackage{color}
+\usepackage{luatexja-ruby}
+\ltjsetruby{mode=00}             %设置振假名的「進入」和「突出」模式
+% \ltjsetruby{rubysmash=true, intergap=-1.8}
+% \ltjsetruby{rubysmash=false, intergap=0.0}
+
+\ltjsetruby{fontcmd=\ZhuYin}   % 設定「注音」使用字型
+% \ltjsetruby{size=0.8}   % 設定「注音」使用字型
+
+\let\temp\ltjruby
+\renewcommand\ltjruby[2]{\temp
+  {\fontsize{26}{26}\selectfont{#1}}
+  {
+    \scriptsize\ltjsetparameter{yjabaselineshift=-5pt, yalbaselineshift=-5pt}
+    \fontsize{12}{12}\selectfont
+    \textcolor{red}{#2}
+  }
+}% end of \ruby...
+
+\begin{document}
+
+\linespread{2.2}
+\fontsize{26}{26}
+\selectfont
+
+《\ltjruby{秦}{chîn}
+\ltjruby{淮}{hoâi}
+\ltjruby{八}{pat}
+\ltjruby{艷}{iām}
+》\vskip 0.5 cm
+\ltjruby{秦}{chîn}
+\ltjruby{淮}{hoâi}
+\ltjruby{歌}{ko}
+\ltjruby{遍}{piàn}
+\ltjruby{徹}{thiat}
+\vskip 0.5 cm
+\ltjruby{八}{pat}
+\ltjruby{艷}{iām}
+\ltjruby{才}{châi}
+\ltjruby{名}{bêng}
+\ltjruby{平}{pêng}
+\ltjruby{秋}{chhiu}
+\ltjruby{色}{sek}
+\vskip 0.5 cm
+\vskip 0.5 cm
+\ltjruby{【}{}
+\ltjruby{柳}{liú}
+\ltjruby{如}{jû}
+\ltjruby{是}{sī}
+\ltjruby{】}{}
+\vskip 0.5 cm
+\ltjruby{佳}{ka}
+\ltjruby{句}{kù}
+\ltjruby{杯}{poe}
+\ltjruby{中}{tiong}
+\ltjruby{游}{iû}
+\vskip 0.5 cm
+\ltjruby{歌}{ko}
+\ltjruby{舞}{bú}
+\ltjruby{自}{chū}
+\ltjruby{風}{hong}
+\ltjruby{流}{liû}
+\vskip 0.5 cm
+\ltjruby{如}{jû}
+\ltjruby{是}{sī}
+\ltjruby{風}{hong}
+\ltjruby{光}{kong}
+\ltjruby{不}{put}
+\ltjruby{知}{ti}
+\ltjruby{愁}{chhiû}
+\vskip 0.5 cm
+\ltjruby{一}{it}
+\ltjruby{曲}{khiok}
+\ltjruby{新}{sin}
+\ltjruby{詞}{sû}
+\ltjruby{ }{}
+\ltjruby{一}{it}
+\ltjruby{壺}{hô͘}
+\ltjruby{酒}{chiú}
+\vskip 0.5 cm
+\ltjruby{浮}{hû}
+\ltjruby{光}{kong}
+\ltjruby{掠}{lio̍k}
+\ltjruby{影}{éng}
+\ltjruby{過}{kò}
+\ltjruby{ }{}
+\ltjruby{花}{hoa}
+\ltjruby{間}{kàn}
+\ltjruby{袖}{siù}
+\vskip 0.5 cm
+\vskip 0.5 cm
+\ltjruby{【}{}
+\ltjruby{李}{lí}
+\ltjruby{香}{hiong}
+\ltjruby{君}{kun}
+\ltjruby{】}{}
+\vskip 0.5 cm
+\ltjruby{十}{si̍p}
+\ltjruby{里}{lí}
+\ltjruby{煙}{ian}
+\ltjruby{雨}{ú}
+\ltjruby{重}{tiōng}
+\ltjruby{重}{tiōng}
+\ltjruby{ }{}
+\ltjruby{燈}{teng}
+\ltjruby{花}{hoa}
+\ltjruby{逐}{tio̍k}
+\ltjruby{水}{súi}
+\ltjruby{流}{liû}
+\vskip 0.5 cm
+\ltjruby{盛}{sēng}
+\ltjruby{庭}{têng}
+\ltjruby{華}{hôa}
+\ltjruby{筵}{iân}
+\ltjruby{依}{i}
+\ltjruby{舊}{kiū}
+\vskip 0.5 cm
+\ltjruby{琵}{pî}
+\ltjruby{琶}{pâ}
+\ltjruby{聲}{seng}
+\ltjruby{色}{sek}
+\ltjruby{悠}{iu}
+\ltjruby{悠}{iu}
+\ltjruby{ }{}
+\ltjruby{香}{hiong}
+\ltjruby{扇}{siàn}
+\ltjruby{桃}{thô}
+\ltjruby{花}{hoa}
+\ltjruby{繡}{siù}
+\vskip 0.5 cm
+\ltjruby{新}{seng}
+\ltjruby{辭}{sû}
+\ltjruby{一}{it}
+\ltjruby{闋}{khoat}
+\ltjruby{為}{ūi}
+\ltjruby{君}{kun}
+\ltjruby{奏}{cháu}
+\vskip 0.5 cm
+\vskip 0.5 cm
+\ltjruby{【}{}
+\ltjruby{卞}{piān}
+\ltjruby{雲}{hûn}
+\ltjruby{裳}{siông}
+\ltjruby{】}{}
+\vskip 0.5 cm
+\ltjruby{落}{lo̍k}
+\ltjruby{筆}{pit}
+\ltjruby{行}{hêng}
+\ltjruby{雲}{hûn}
+\ltjruby{走}{chó͘}
+\ltjruby{ }{}
+\ltjruby{文}{bûn}
+\ltjruby{史}{sú}
+\ltjruby{古}{kó͘}
+\ltjruby{今}{kim}
+\ltjruby{通}{thong}
+\vskip 0.5 cm
+\ltjruby{歌}{ko}
+\ltjruby{絕}{choa̍t}
+\ltjruby{畫}{ōe}
+\ltjruby{欄}{lân}
+\ltjruby{百}{pek}
+\ltjruby{花}{hoa}
+\ltjruby{動}{tōng}
+\vskip 0.5 cm
+\ltjruby{浮}{hû}
+\ltjruby{華}{hôa}
+\ltjruby{轉}{choán}
+\ltjruby{瞬}{sùn}
+\ltjruby{空}{khòng}
+\ltjruby{ }{}
+\ltjruby{青}{chheng}
+\ltjruby{燈}{teng}
+\ltjruby{素}{s ò͘}
+\ltjruby{裳}{siông}
+\ltjruby{亦}{e̍k}
+\ltjruby{驚}{keng}
+\ltjruby{鴻}{hông}
+\vskip 0.5 cm
+\vskip 0.5 cm
+\ltjruby{【}{}
+\ltjruby{董}{tóng}
+\ltjruby{小}{siáu}
+\ltjruby{宛}{oán}
+\ltjruby{】}{}
+\vskip 0.5 cm
+\ltjruby{小}{siáu}
+\ltjruby{樓}{lô͘}
+\ltjruby{醉}{chùi}
+\ltjruby{春}{chhun}
+\ltjruby{紅}{hông}
+\ltjruby{ }{}
+\ltjruby{亂}{loān}
+\ltjruby{世}{sè}
+\ltjruby{宛}{oán}
+\ltjruby{如}{jû}
+\ltjruby{夢}{bōng}
+\vskip 0.5 cm
+\ltjruby{一}{it}
+\ltjruby{縷}{lú}
+\ltjruby{香}{hiong}
+\ltjruby{魂}{hûn}
+\ltjruby{半}{poàn}
+\ltjruby{生}{seng}
+\ltjruby{零}{lêng}
+\ltjruby{落}{lo̍k}
+\vskip 0.5 cm
+\ltjruby{琴}{khîm}
+\ltjruby{聲}{seng}
+\ltjruby{亂}{loān}
+\ltjruby{ }{}
+\ltjruby{未}{bī}
+\ltjruby{成}{sêng}
+\ltjruby{曲}{khiok}
+\ltjruby{調}{tiàu}
+\ltjruby{ }{}
+\ltjruby{先}{sian}
+\ltjruby{訴}{s ò͘}
+\ltjruby{情}{chêng}
+\ltjruby{濃}{lông}
+\vskip 0.5 cm
+\vskip 0.5 cm
+\ltjruby{金}{kim}
+\ltjruby{陵}{lêng}
+\ltjruby{舞}{bú}
+\ltjruby{四}{sù}
+\ltjruby{方}{hong}
+\vskip 0.5 cm
+\ltjruby{八}{pat}
+\ltjruby{絕}{choa̍t}
+\ltjruby{共}{kiōng}
+\ltjruby{賞}{sióng}
+\ltjruby{滿}{boán}
+\ltjruby{庭}{têng}
+\ltjruby{芳}{hong}
+\vskip 0.5 cm
+\vskip 0.5 cm
+\ltjruby{【}{}
+\ltjruby{陳}{tîn}
+\ltjruby{圓}{oân}
+\ltjruby{圓}{oân}
+\ltjruby{】}{}
+\vskip 0.5 cm
+\ltjruby{佳}{ka}
+\ltjruby{人}{jîn}
+\ltjruby{翹}{khiàu}
+\ltjruby{盼}{phàn}
+\ltjruby{首}{siú}
+\ltjruby{ }{}
+\ltjruby{翠}{chhùi}
+\ltjruby{閣}{ko͘h}
+\ltjruby{下}{hā}
+\ltjruby{簾}{liâm}
+\ltjruby{鉤}{kau}
+\vskip 0.5 cm
+\ltjruby{霓}{gê}
+\ltjruby{裳}{siông}
+\ltjruby{水}{súi}
+\ltjruby{袖}{siù}
+\ltjruby{妙}{miāu}
+\ltjruby{歌}{ko}
+\ltjruby{喉}{âu}
+\vskip 0.5 cm
+\ltjruby{花}{hoa}
+\ltjruby{好}{hòⁿ}
+\ltjruby{月}{goa̍t}
+\ltjruby{圓}{oân}
+\ltjruby{ }{}
+\ltjruby{宮}{kiong}
+\ltjruby{牆}{chhiông}
+\ltjruby{柳}{liú}
+\vskip 0.5 cm
+\ltjruby{舞}{bú}
+\ltjruby{絕}{choa̍t}
+\ltjruby{秦}{chîn}
+\ltjruby{淮}{hoâi}
+\ltjruby{岸}{gān}
+\ltjruby{ }{}
+\ltjruby{醉}{chùi}
+\ltjruby{王}{ông}
+\ltjruby{侯}{hô͘}
+\vskip 0.5 cm
+\vskip 0.5 cm
+\ltjruby{【}{}
+\ltjruby{寇}{kh ò͘}
+\ltjruby{白}{pe̍k}
+\ltjruby{門}{bûn}
+\ltjruby{】}{}
+\vskip 0.5 cm
+\ltjruby{青}{chheng}
+\ltjruby{山}{san}
+\ltjruby{白}{pe̍k}
+\ltjruby{雲}{hûn}
+\ltjruby{幽}{iu}
+\ltjruby{幽}{iu}
+\ltjruby{ }{}
+\ltjruby{相}{siong}
+\ltjruby{思}{su}
+\ltjruby{曲}{khiok}
+\ltjruby{不}{put}
+\ltjruby{休}{hiu}
+\vskip 0.5 cm
+\ltjruby{今}{kim}
+\ltjruby{朝}{tiau}
+\ltjruby{紅}{hông}
+\ltjruby{塵}{tîn}
+\ltjruby{看}{khàn}
+\ltjruby{透}{thò}
+\vskip 0.5 cm
+\ltjruby{朱}{chu}
+\ltjruby{門}{bûn}
+\ltjruby{車}{ki}
+\ltjruby{馬}{má}
+\ltjruby{匆}{chhong}
+\ltjruby{匆}{chhong}
+\ltjruby{ }{}
+\ltjruby{再}{chài}
+\ltjruby{登}{teng}
+\ltjruby{金}{kim}
+\ltjruby{陵}{lêng}
+\ltjruby{樓}{lô͘}
+\vskip 0.5 cm
+\ltjruby{黃}{hông}
+\ltjruby{粱}{liâng}
+\ltjruby{一}{it}
+\ltjruby{夢}{bōng}
+\ltjruby{情}{chêng}
+\ltjruby{難}{lân}
+\ltjruby{留}{liû}
+\vskip 0.5 cm
+\vskip 0.5 cm
+\ltjruby{【}{}
+\ltjruby{馬}{má}
+\ltjruby{湘}{siong}
+\ltjruby{蘭}{lân}
+\ltjruby{】}{}
+\vskip 0.5 cm
+\ltjruby{醉}{chùi}
+\ltjruby{點}{tiám}
+\ltjruby{金}{kim}
+\ltjruby{釵}{chhai}
+\ltjruby{瑠}{liû}
+\ltjruby{ }{}
+\ltjruby{湘}{siong}
+\ltjruby{裙}{kûn}
+\ltjruby{斂}{liám}
+\ltjruby{溫}{un}
+\ltjruby{柔}{jiû}
+\vskip 0.5 cm
+\ltjruby{從}{Chiông}
+\ltjruby{來}{lâi}
+\ltjruby{歡}{hoan}
+\ltjruby{歌}{ko}
+\ltjruby{繞}{jiàu}
+\ltjruby{畫}{ōe}
+\ltjruby{梁}{liông}
+\vskip 0.5 cm
+\ltjruby{何}{hô}
+\ltjruby{必}{pit}
+\ltjruby{惹}{jiá}
+\ltjruby{愁}{chhiû}
+\ltjruby{腸}{tiông}
+\ltjruby{ }{}
+\ltjruby{素}{s ò͘}
+\ltjruby{手}{siú}
+\ltjruby{妙}{miāu}
+\ltjruby{筆}{pit}
+\ltjruby{添}{thiam}
+\ltjruby{蘭}{lân}
+\ltjruby{芳}{hong}
+\vskip 0.5 cm
+\vskip 0.5 cm
+\ltjruby{【}{}
+\ltjruby{顧}{k ò͘}
+\ltjruby{眉}{bî}
+\ltjruby{生}{seng}
+\ltjruby{】}{}
+\vskip 0.5 cm
+\ltjruby{江}{kang}
+\ltjruby{湖}{ô͘}
+\ltjruby{名}{bêng}
+\ltjruby{遠}{oán}
+\ltjruby{揚}{iông}
+\ltjruby{ }{}
+\ltjruby{眉}{bî}
+\ltjruby{樓}{lâu}
+\ltjruby{玉}{gio̍k}
+\ltjruby{生}{seng}
+\ltjruby{香}{hiong}
+\vskip 0.5 cm
+\ltjruby{俠}{kiap}
+\ltjruby{骨}{kut}
+\ltjruby{柔}{jiû}
+\ltjruby{腸}{tiông}
+\ltjruby{艷}{iām}
+\ltjruby{冠}{koàn}
+\ltjruby{八}{pat}
+\ltjruby{方}{hong}
+\vskip 0.5 cm
+\ltjruby{待}{thāi}
+\ltjruby{君}{kun}
+\ltjruby{歸}{kui}
+\ltjruby{ }{}
+\ltjruby{金}{kim}
+\ltjruby{玉}{gio̍k}
+\ltjruby{滿}{boán}
+\ltjruby{堂}{tông}
+\ltjruby{ }{}
+\ltjruby{鴛}{oan}
+\ltjruby{鴦}{iong}
+\ltjruby{成}{sêng}
+\ltjruby{雙}{song}
+
+\end{document}

@@ -1,0 +1,459 @@
+% !TEX program = lualatex
+\documentclass{article}%宣告一般論文
+\usepackage[top=0.6in , bottom =0.7in , left=0.5in , right =0.5in]{geometry}
+
+\usepackage{luatexja}
+%\ltjsetparameter{kanjiskip=2pt} \dimen0=\ltjgetparameter{kanjiskip}
+%\ltjsetparameter{talbaselineshift=0.1\zw}
+
+%===========================================================
+% 設定「漢字」與「注音」之排版格式
+%===========================================================
+
+% 當 LuaTeX-ja ，無「日文」可對映至「漢文」時，仍可顯示「中文」字形
+\usepackage{luatexja-fontspec}
+
+% 設定「注音符號」顯示於漢字之上方或下側用套件
+\usepackage{luatexja-ruby}
+% 設定「注音符號」顏色
+\usepackage{xcolor}
+
+%------------------------------
+% 設定漢字字型
+%------------------------------
+% 明體
+\setmainjfont{I.Ming-7.01.ttf}
+% 黑體
+%\setmainjfont{Noto Sans TC}
+
+%------------------------------
+% 設定注音字型
+%------------------------------
+% 方音符號用
+\setmainfont{BopomofoRuby1909-v1-Regular.ttf}
+\newfontfamily\ZhuYin{BopomofoRuby1909-v1-Regular.ttf}
+% 白話字注音用
+%\newfontfamily\ZhuYin{TaigiGenWanM-KN-L}
+
+% 注音置於漢字上方
+% \renewcommand{\rubysep}{0.1 ex}
+% 注音置於漢字下方
+% \renewcommand{\rubysep}{-1.5 ex}
+
+\usepackage{color}
+\usepackage{luatexja-ruby}
+\ltjsetruby{mode=01}             %设置振假名的「進入」和「突出」模式
+\ltjsetruby{rubysmash=true, intergap=-1.5}
+% \ltjsetruby{rubysmash=true, intergap=0.2}
+%\ltjsetruby{rubysmash=true}
+%\ltjsetruby{baseheight=-1}
+
+%\ltjsetruby{fontcmd=\ZhuYin}   % 設定「注音」使用字型
+\ltjsetruby{size=0.35}   % 設定「注音」使用字型
+
+\let\temp\ltjruby
+\renewcommand\ltjruby[2]{\temp
+  {\fontsize{26}{26}\selectfont{#1}}
+  {\textcolor{red}{#2}}
+}% end of \ruby...
+  % {\fontsize{12}{12}\selectfont\textcolor{red}{\ZhuYin{#2}}}
+
+
+\begin{document}
+
+\linespread{2.2}
+\fontsize{26}{26}
+\selectfont
+
+《
+\ruby{秦}{ㄐㄧㄣˊ}\
+\ruby{淮}{ㄏㄨㄞˊ}\
+\ruby{八}{ㄅㄚㆵ}\
+\ruby{艷}{ㄧㆰ˫}\
+》
+\vskip 0.5 cm
+
+\ruby{秦}{ㄐㄧㄣˊ}\
+\ruby{淮}{ㄏㄨㄞˊ}\
+\ruby{歌}{ㄍㄜ}\
+\ruby{遍}{ㄅㄧㄢ˪}\
+\ruby{徹}{ㄊㄧㄚㆵ}\
+\vskip 0.5 cm
+\ruby{八}{ㄅㄚㆵ}\
+\ruby{艷}{ㄧㆰ˫}\
+\ruby{才}{ㄗㄞˊ}\
+\ruby{名}{ㆠㄧㄥˊ}\
+\ruby{平}{ㄅㄧㄥˊ}\
+\ruby{秋}{ㄑㄧㄨ}\
+\ruby{色}{ㄙㄧㆻ}\
+\vskip 0.5 cm
+\clearpage
+\ruby{【}{}\
+\ruby{柳}{ㄌㄧㄨˋ}\
+\ruby{如}{ㆡㄨˊ}\
+\ruby{是}{ㄒㄧ˫}\
+\ruby{】}{}\
+\vskip 0.5 cm
+\ruby{佳}{ㄍㄚ}\
+\ruby{句}{ㄍㄨ˪}\
+\ruby{杯}{ㄅㄨㆤ}\
+\ruby{中}{ㄉㄧㆲ}\
+\ruby{游}{ㄧㄨˊ}\
+\vskip 0.5 cm
+\ruby{歌}{ㄍㄜ}\
+\ruby{舞}{ㆠㄨˋ}\
+\ruby{自}{ㄗㄨ˫}\
+\ruby{風}{ㄏㆲ}\
+\ruby{流}{ㄌㄧㄨˊ}\
+\vskip 0.5 cm
+\ruby{如}{ㆡㄨˊ}\
+\ruby{是}{ㄒㄧ˫}\
+\ruby{風}{ㄏㆲ}\
+\ruby{光}{ㄍㆲ}\
+\ruby{不}{ㄅㄨㆵ}\
+\ruby{知}{ㄉㄧ}\
+\ruby{愁}{ㄑㄧㄨˊ}\
+\vskip 0.5 cm
+\ruby{一}{ㄧㆵ}\
+\ruby{曲}{ㄎㄧㆦㆻ}\
+\ruby{新}{ㄒㄧㄣ}\
+\ruby{詞}{ㄙㄨˊ}\
+\ruby{ }{}\
+\ruby{一}{ㄧㆵ}\
+\ruby{壺}{ㄏㆦˊ}\
+\ruby{酒}{ㄐㄧㄨˋ}\
+\vskip 0.5 cm
+\ruby{浮}{ㄏㄨˊ}\
+\ruby{光}{ㄍㆲ}\
+\ruby{掠}{ㄌㄧㆦㆻ˙}\
+\ruby{影}{ㄧㄥˋ}\
+\ruby{過}{ㄍㄜ˪}\
+\vskip 0.5 cm
+\ruby{花}{ㄏㄨㄚ}\
+\ruby{間}{ㄍㄢ˪}\
+\ruby{袖}{ㄒㄧㄨ˪}\
+\vskip 0.5 cm
+\clearpage
+\ruby{【}{}\
+\ruby{李}{ㄌㄧˋ}\
+\ruby{香}{ㄏㄧㆲ}\
+\ruby{君}{ㄍㄨㄣ}\
+\ruby{】}{}\
+\vskip 0.5 cm
+\ruby{十}{ㄒ一ㆴ˙}\
+\ruby{里}{ㄌㄧˋ}\
+\ruby{煙}{ㄧㄢ}\
+\ruby{雨}{ㄨˋ}\
+\ruby{重}{ㄉㄧㆲ˫}\
+\ruby{重}{ㄉㄧㆲ˫}\
+\vskip 0.5 cm
+\ruby{燈}{ㄉㄧㄥ}\
+\ruby{花}{ㄏㄨㄚ}\
+\ruby{逐}{ㄉㄧㆦㆻ˙}\
+\ruby{水}{ㄙㄨㄧˋ}\
+\ruby{流}{ㄌㄧㄨˊ}\
+\vskip 0.5 cm
+\ruby{盛}{ㄒㄧㄥ˫}\
+\ruby{庭}{ㄉㄧㄥˊ}\
+\ruby{華}{ㄏㄨㄚˊ}\
+\ruby{筵}{ㄧㄢˊ}\
+\ruby{依}{ㄧ}\
+\ruby{舊}{ㄍㄧㄨ˫}\
+\vskip 0.5 cm
+\ruby{琵}{ㄅㄧˊ}\
+\ruby{琶}{ㄅㄚˊ}\
+\ruby{聲}{ㄒㄧㄥ}\
+\ruby{色}{ㄙㄧㆻ}\
+\ruby{悠}{ㄧㄨ}\
+\ruby{悠}{ㄧㄨ}\
+\vskip 0.5 cm
+\ruby{香}{ㄏㄧㆲ}\
+\ruby{扇}{ㄒㄧㄢ˪}\
+\ruby{桃}{ㄊㄜˊ}\
+\ruby{花}{ㄏㄨㄚ}\
+\ruby{繡}{ㄒㄧㄨ˪}\
+\vskip 0.5 cm
+\ruby{新}{ㄒㄧㄥ}\
+\ruby{辭}{ㄙㄨˊ}\
+\ruby{一}{ㄧㆵ}\
+\ruby{闋}{ㄎㄨㄚㆵ}\
+\ruby{為}{ㄨㄧ˫}\
+\ruby{君}{ㄍㄨㄣ}\
+\ruby{奏}{ㄗㄠˋ}\
+\vskip 0.5 cm
+\clearpage
+\ruby{【}{}\
+\ruby{卞}{ㄅㄧㄢ˫}\
+\ruby{雲}{ㄏㄨㄣˊ}\
+\ruby{裳}{ㄒㄧㆲˊ}\
+\ruby{】}{}\
+\vskip 0.5 cm
+\ruby{落}{ㄌㆦㆻ˙}\
+\ruby{筆}{ㄅㄧㆵ}\
+\ruby{行}{ㄏㄧㄥˊ}\
+\ruby{雲}{ㄏㄨㄣˊ}\
+\ruby{走}{ㄗㆦˋ}\
+\vskip 0.5 cm
+\ruby{文}{ㆠㄨㄣˊ}\
+\ruby{史}{ㄙㄨˋ}\
+\ruby{古}{ㄍㆦˋ}\
+\ruby{今}{ㄍㄧㆬ}\
+\ruby{通}{ㄊㆲ}\
+\vskip 0.5 cm
+\ruby{歌}{ㄍㄜ}\
+\ruby{絕}{ㄗㄨㄚㆵ˙}\
+\ruby{畫}{ㄨㆤ˫}\
+\ruby{欄}{ㄌㄢˊ}\
+\ruby{百}{ㄅㄧㆻ}\
+\ruby{花}{ㄏㄨㄚ}\
+\ruby{動}{ㄉㆲ˫}\
+\vskip 0.5 cm
+\ruby{浮}{ㄏㄨˊ}\
+\ruby{華}{ㄏㄨㄚˊ}\
+\ruby{轉}{ㄗㄨㄢˋ}\
+\ruby{瞬}{ㄙㄨㄣ˪}\
+\ruby{空}{ㄎㆲ˪}\
+\vskip 0.5 cm
+\ruby{青}{ㄑㄧㄥ}\
+\ruby{燈}{ㄉㄧㄥ}\
+\ruby{素}{ㄙㆦ˪}\
+\ruby{裳}{ㄒㄧㆲˊ}\
+\ruby{亦}{ㄧㆻ˙}\
+\ruby{驚}{ㄍㄧㄥ}\
+\ruby{鴻}{ㄏㆲˊ}\
+\vskip 0.5 cm
+\clearpage
+\ruby{【}{}\
+\ruby{董}{ㄉㆲˋ}\
+\ruby{小}{ㄒㄧㄠˋ}\
+\ruby{宛}{ㄨㄢˋ}\
+\ruby{】}{}\
+\vskip 0.5 cm
+\ruby{小}{ㄒㄧㄠˋ}\
+\ruby{樓}{ㄌㆦˊ}\
+\ruby{醉}{ㄗㄨㄧ˪}\
+\ruby{春}{ㄘㄨㄣ}\
+\ruby{紅}{ㄏㆲˊ}\
+\vskip 0.5 cm
+\ruby{亂}{ㄌㄨㄢ˫}\
+\ruby{世}{ㄙㆤ˪}\
+\ruby{宛}{ㄨㄢˋ}\
+\ruby{如}{ㆡㄨˊ}\
+\ruby{夢}{ㆠㆲ˫}\
+\vskip 0.5 cm
+\ruby{一}{ㄧㆵ}\
+\ruby{縷}{ㄌㄨˋ}\
+\ruby{香}{ㄏㄧㆲ}\
+\ruby{魂}{ㄏㄨㄣˊ}\
+\ruby{半}{ㄅㄨㄢ˪}\
+\ruby{生}{ㄒㄧㄥ}\
+\ruby{零}{ㄌㄧㄥˊ}\
+\ruby{落}{ㄌㆦㆻ˙}\
+\vskip 0.5 cm
+\ruby{琴}{ㄎㄧㆬˊ}\
+\ruby{聲}{ㄒㄧㄥ}\
+\ruby{亂}{ㄌㄨㄢ˫}\
+\ruby{ }{}\
+\ruby{未}{ㆠㄧ˫}\
+\ruby{成}{ㄒㄧㄥˊ}\
+\ruby{曲}{ㄎㄧㆦㆻ}\
+\ruby{調}{ㄉㄧㄠ˪}\
+\vskip 0.5 cm
+\ruby{先}{ㄒㄧㄢ}\
+\ruby{訴}{ㄙㆦ˪}\
+\ruby{情}{ㄐㄧㄥˊ}\
+\ruby{濃}{ㄌㆲˊ}\
+\vskip 0.5 cm
+\clearpage
+\ruby{金}{ㄍㄧㆬ}\
+\ruby{陵}{ㄌㄧㄥˊ}\
+\ruby{舞}{ㆠㄨˋ}\
+\ruby{四}{ㄙㄨ˪}\
+\ruby{方}{ㄏㆲ}\
+\vskip 0.5 cm
+\ruby{八}{ㄅㄚㆵ}\
+\ruby{絕}{ㄗㄨㄚㆵ˙}\
+\ruby{共}{ㄍㄧㆲ˫}\
+\ruby{賞}{ㄒㄧㆲˋ}\
+\ruby{滿}{ㆠㄨㄢˋ}\
+\ruby{庭}{ㄉㄧㄥˊ}\
+\ruby{芳}{ㄏㆲ}\
+\vskip 0.5 cm
+\clearpage
+\ruby{【}{}\
+\ruby{陳}{ㄉㄧㄣˊ}\
+\ruby{圓}{ㄨㄢˊ}\
+\ruby{圓}{ㄨㄢˊ}\
+\ruby{】}{}\
+\vskip 0.5 cm
+\ruby{佳}{ㄍㄚ}\
+\ruby{人}{ㆡㄧㄣˊ}\
+\ruby{翹}{ㄎㄧㄠ˪}\
+\ruby{盼}{ㄆㄢ˪}\
+\ruby{首}{ㄒㄧㄨˋ}\
+\vskip 0.5 cm
+\ruby{翠}{ㄘㄨㄧ˪}\
+\ruby{閣}{ㄍㆦㆷ}\
+\ruby{下}{ㄏㄚ˫}\
+\ruby{簾}{ㄌㄧㆰˊ}\
+\ruby{鉤}{ㄍㄠ}\
+\vskip 0.5 cm
+\ruby{霓}{ㆣㆤˊ}\
+\ruby{裳}{ㄒㄧㆲˊ}\
+\ruby{水}{ㄙㄨㄧˋ}\
+\ruby{袖}{ㄒㄧㄨ˪}\
+\ruby{妙}{ㄇㄧㄠ˫}\
+\ruby{歌}{ㄍㄜ}\
+\ruby{喉}{ㄠˊ}\
+\vskip 0.5 cm
+\ruby{花}{ㄏㄨㄚ}\
+\ruby{好}{ㄏㆧ˪}\
+\ruby{月}{ㆣㄨㄚㆵ˙}\
+\ruby{圓}{ㄨㄢˊ}\
+\ruby{ }{}\
+\ruby{宮}{ㄍㄧㆲ}\
+\ruby{牆}{ㄑㄧㆲˊ}\
+\ruby{柳}{ㄌㄧㄨˋ}\
+\vskip 0.5 cm
+\ruby{舞}{ㆠㄨˋ}\
+\ruby{絕}{ㄗㄨㄚㆵ˙}\
+\ruby{秦}{ㄐㄧㄣˊ}\
+\ruby{淮}{ㄏㄨㄞˊ}\
+\ruby{岸}{ㆣㄢ˫}\
+\vskip 0.5 cm
+\ruby{醉}{ㄗㄨㄧ˪}\
+\ruby{王}{ㆲˊ}\
+\ruby{侯}{ㄏㆦˊ}\
+\vskip 0.5 cm
+\clearpage
+\ruby{【}{}\
+\ruby{寇}{ㄎㆦ˪}\
+\ruby{白}{ㄅㄧㆻ˙}\
+\ruby{門}{ㆠㄨㄣˊ}\
+\ruby{】}{}\
+\vskip 0.5 cm
+\ruby{青}{ㄑㄧㄥ}\
+\ruby{山}{ㄙㄢ}\
+\ruby{白}{ㄅㄧㆻ˙}\
+\ruby{雲}{ㄏㄨㄣˊ}\
+\ruby{幽}{ㄧㄨ}\
+\ruby{幽}{ㄧㄨ}\
+\vskip 0.5 cm
+\ruby{相}{ㄒㄧㆲ}\
+\ruby{思}{ㄙㄨ}\
+\ruby{曲}{ㄎㄧㆦㆻ}\
+\ruby{不}{ㄅㄨㆵ}\
+\ruby{休}{ㄏㄧㄨ}\
+\vskip 0.5 cm
+\ruby{今}{ㄍㄧㆬ}\
+\ruby{朝}{ㄉㄧㄠ}\
+\ruby{紅}{ㄏㆲˊ}\
+\ruby{塵}{ㄉㄧㄣˊ}\
+\ruby{看}{ㄎㄢ˪}\
+\ruby{透}{ㄊㄜ˪}\
+\vskip 0.5 cm
+\ruby{朱}{ㄗㄨ}\
+\ruby{門}{ㆠㄨㄣˊ}\
+\ruby{車}{ㄍㄧ}\
+\ruby{馬}{ㄇㄚˋ}\
+\ruby{匆}{ㄘㆲ}\
+\ruby{匆}{ㄘㆲ}\
+\vskip 0.5 cm
+\ruby{再}{ㄗㄞ˪}\
+\ruby{登}{ㄉㄧㄥ}\
+\ruby{金}{ㄍㄧㆬ}\
+\ruby{陵}{ㄌㄧㄥˊ}\
+\ruby{樓}{ㄌㆦˊ}\
+\vskip 0.5 cm
+\ruby{黃}{ㄏㆲˊ}\
+\ruby{粱}{ㄌㄧㄤˊ}\
+\ruby{一}{ㄧㆵ}\
+\ruby{夢}{ㆠㆲ˫}\
+\ruby{情}{ㄐㄧㄥˊ}\
+\ruby{難}{ㄌㄢˊ}\
+\ruby{留}{ㄌㄧㄨˊ}\
+\vskip 0.5 cm
+\clearpage
+\ruby{【}{}\
+\ruby{馬}{ㄇㄚˋ}\
+\ruby{湘}{ㄒㄧㆲ}\
+\ruby{蘭}{ㄌㄢˊ}\
+\ruby{】}{}\
+\vskip 0.5 cm
+\ruby{醉}{ㄗㄨㄧ˪}\
+\ruby{點}{ㄉㄧㆰˋ}\
+\ruby{金}{ㄍㄧㆬ}\
+\ruby{釵}{ㄘㄞ}\
+\ruby{瑠}{ㄌㄧㄨˊ}\
+\vskip 0.5 cm
+\ruby{湘}{ㄒㄧㆲ}\
+\ruby{裙}{ㄍㄨㄣˊ}\
+\ruby{斂}{ㄌㄧㆰˋ}\
+\ruby{溫}{ㄨㄣ}\
+\ruby{柔}{ㆡㄧㄨˊ}\
+\vskip 0.5 cm
+\ruby{從}{ㄐㄧㆲˊ}\
+\ruby{來}{ㄌㄞˊ}\
+\ruby{歡}{ㄏㄨㄢ}\
+\ruby{歌}{ㄍㄜ}\
+\ruby{繞}{ㆡㄧㄠ˪}\
+\ruby{畫}{ㄨㆤ˫}\
+\ruby{梁}{ㄌㄧㆲˊ}\
+\vskip 0.5 cm
+\ruby{何}{ㄏㄜˊ}\
+\ruby{必}{ㄅㄧㆵ}\
+\ruby{惹}{ㆡㄧㄚˋ}\
+\ruby{愁}{ㄑㄧㄨˊ}\
+\ruby{腸}{ㄉㄧㆲˊ}\
+\vskip 0.5 cm
+\ruby{素}{ㄙㆦ˪}\
+\ruby{手}{ㄒㄧㄨˋ}\
+\ruby{妙}{ㄇㄧㄠ˫}\
+\ruby{筆}{ㄅㄧㆵ}\
+\ruby{添}{ㄊㄧㆰ}\
+\ruby{蘭}{ㄌㄢˊ}\
+\ruby{芳}{ㄏㆲ}\
+\vskip 0.5 cm
+\clearpage
+\ruby{【}{}\
+\ruby{顧}{ㄍㆦ˪}\
+\ruby{眉}{ㆠㄧˊ}\
+\ruby{生}{ㄒㄧㄥ}\
+\ruby{】}{}\
+\vskip 0.5 cm
+\ruby{江}{ㄍㄤ}\
+\ruby{湖}{ㆦˊ}\
+\ruby{名}{ㆠㄧㄥˊ}\
+\ruby{遠}{ㄨㄢˋ}\
+\ruby{揚}{ㄧㆲˊ}\
+\vskip 0.5 cm
+\ruby{眉}{ㆠㄧˊ}\
+\ruby{樓}{ㄌㄠˊ}\
+\ruby{玉}{ㆣㄧㆦㆻ˙}\
+\ruby{生}{ㄒㄧㄥ}\
+\ruby{香}{ㄏㄧㆲ}\
+\vskip 0.5 cm
+\ruby{俠}{ㄍㄧㄚㆴ}\
+\ruby{骨}{ㄍㄨㆵ}\
+\ruby{柔}{ㆡㄧㄨˊ}\
+\ruby{腸}{ㄉㄧㆲˊ}\
+\ruby{艷}{ㄧㆰ˫}\
+\ruby{冠}{ㄍㄨㄢ˪}\
+\ruby{八}{ㄅㄚㆵ}\
+\ruby{方}{ㄏㆲ}\
+\vskip 0.5 cm
+\ruby{待}{ㄊㄞ˫}\
+\ruby{君}{ㄍㄨㄣ}\
+\ruby{歸}{ㄍㄨㄧ}\
+\ruby{ }{}\
+\ruby{金}{ㄍㄧㆬ}\
+\ruby{玉}{ㆣㄧㆦㆻ˙}\
+\ruby{滿}{ㆠㄨㄢˋ}\
+\ruby{堂}{ㄉㆲˊ}\
+\vskip 0.5 cm
+\ruby{鴛}{ㄨㄢ}\
+\ruby{鴦}{ㄧㆲ}\
+\ruby{成}{ㄒㄧㄥˊ}\
+\ruby{雙}{ㄙㆲ}\
+
+\end{document}

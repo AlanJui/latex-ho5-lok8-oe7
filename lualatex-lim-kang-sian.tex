@@ -39,33 +39,64 @@ end
 \setmainjfont{I.Ming-7.01.ttf}
 \newfontfamily\Bopomo{BopomofoRuby1909-v1-Regular.ttf}
 
+% 設定「漢字」間距
+\renewcommand{\CJKglue}{\hskip 0.5cm \baselineskip}
 
 \usepackage{luatexja-ruby}
+\usepackage{xcolor}
 \ltjsetruby{size=0.3}            %设置振假名字号
 \ltjsetruby{fontcmd=\Bopomo}   %设置振假名字体
 \ltjsetruby{mode=00}             %设置振假名的「進入」和「突出」模式
 \ltjsetruby{rubysmash=false, intergap=0.2}
 
+\let\temp\ltjruby
+\renewcommand\ltjruby[2]{\temp
+  {\fontsize{26}{26}\selectfont{#1}}
+  {
+    \scriptsize\ltjsetparameter{yjabaselineshift=-5pt, yalbaselineshift=-5pt}
+    \fontsize{11}{11}\selectfont
+    \textcolor{red}{#2}
+  }
+}% end of \ruby...
+
 \begin{document}
 \linespread{2.2}
 \fontsize{26}{26}
 \selectfont
+\noindent
 
-《\ltjruby{臨}{ㄌㄧㆬˊ}\ltjruby{江}{ㄍㄤ}\ltjruby{仙}{ㄒㄧㄢ}》
-\vskip 1 cm
-\ltjruby{滾}{ㄍㄨㄣˋ}\ltjruby{滾}{ㄍㄨㄣˋ}\ltjruby{長}{ㄉㄧㆲˊ}\ltjruby{江}{ㄍㄤ}\ltjruby{東}{ㄉㆲ}\ltjruby{逝}{ㄙㆤ˫}\ltjruby{水}{ㄙㄨㄧˋ}，
+《
+\ltjruby{臨}{ㄌㄧㆬˊ}
+\ltjruby{江}{ㄍㄤ}
+\ltjruby{仙}{ㄒㄧㄢ}
+》
+\vskip 0.5 cm
+\ltjruby{滾}{ㄍㄨㄣˋ}
+\ltjruby{滾}{ㄍㄨㄣˋ}
+\ltjruby{長}{ㄉㄧㆲˊ}
+\ltjruby{江}{ㄍㄤ}
+\ltjruby{東}{ㄉㆲ}
+\ltjruby{逝}{ㄙㆤ˫}
+\ltjruby{水}{ㄙㄨㄧˋ}
+，
+\vskip 0.5 cm
 \ltjruby{浪}{ㄌㆲ˫}\ltjruby{花}{ㄏㄨㄚ}\ltjruby{淘}{ㄉㄜˊ}\ltjruby{盡}{ㄐㄧㄣ˪}\ltjruby{英}{ㄧㄥ}\ltjruby{雄}{ㄏㄧㆲˊ}。
-\vskip 1 cm
+\vskip 0.5 cm
 \ltjruby{是}{ㄒㄧ˫}\ltjruby{非}{ㄏㄨㄧ}\ltjruby{成}{ㄒㄧㄥˊ}\ltjruby{敗}{ㄅㄞ˫}\ltjruby{轉}{ㄗㄨㄢˋ}\ltjruby{頭}{ㄊㄧㄜˊ}\ltjruby{空}{ㄎㆲ}。\
-\vskip 1 cm
-\ltjruby{青}{ㄑㄧㄥ}\ltjruby{山}{ㄙㄢ}\ltjruby{依}{ㄧ}\ltjruby{舊}{ㄍㄧㄨ˫}\ltjruby{在}{ㄗㄞ˫}，\ltjruby{幾}{ㄍㄧˋ}\ltjruby{度}{ㄉㆦ˫}\ltjruby{夕}{ㄙㄧㆻ˙}\ltjruby{陽}{ㄧㆲˊ}\ltjruby{紅}{ㄏㆲˊ}。\
-\vskip 1 cm
-\ltjruby{白}{ㄅㄧㆻ}\ltjruby{髮}{ㄏㄨㄚㆵ}\ltjruby{漁}{ㆣㄨˊ}\ltjruby{樵}{ㄐㄧㄠˊ}\ltjruby{江}{ㄍㄤ}\ltjruby{渚}{ㄗㄨˋ}\ltjruby{上}{ㄒㄧㆲ˫}，\ltjruby{慣}{ㄍㄨㄢ˪}\ltjruby{看}{ㄎㄢ˪}\ltjruby{秋}{ㄑㄧㄨ}\ltjruby{月}{ㆣㄨㄚㆵ˙}\ltjruby{春}{ㄘㄨㄣ}\ltjruby{風}{ㄏㆲ}。
-\vskip 1 cm
+\vskip 0.5 cm
+\ltjruby{青}{ㄑㄧㄥ}\ltjruby{山}{ㄙㄢ}\ltjruby{依}{ㄧ}\ltjruby{舊}{ㄍㄧㄨ˫}\ltjruby{在}{ㄗㄞ˫}，
+\vskip 0.5 cm
+\ltjruby{幾}{ㄍㄧˋ}\ltjruby{度}{ㄉㆦ˫}\ltjruby{夕}{ㄙㄧㆻ˙}\ltjruby{陽}{ㄧㆲˊ}\ltjruby{紅}{ㄏㆲˊ}。\
+\vskip 0.5 cm
+\ltjruby{白}{ㄅㄧㆻ}\ltjruby{髮}{ㄏㄨㄚㆵ}\ltjruby{漁}{ㆣㄨˊ}\ltjruby{樵}{ㄐㄧㄠˊ}\ltjruby{江}{ㄍㄤ}\ltjruby{渚}{ㄗㄨˋ}\ltjruby{上}{ㄒㄧㆲ˫}，
+\vskip 0.5 cm
+\ltjruby{慣}{ㄍㄨㄢ˪}\ltjruby{看}{ㄎㄢ˪}\ltjruby{秋}{ㄑㄧㄨ}\ltjruby{月}{ㆣㄨㄚㆵ˙}\ltjruby{春}{ㄘㄨㄣ}\ltjruby{風}{ㄏㆲ}。
+\vskip 0.5 cm
 \ltjruby{一}{ㄧㆵ}\ltjruby{壺}{ㄏㆦˊ}\ltjruby{濁}{ㄉㆦㆻ˙}\ltjruby{酒}{ㄐㄧㄨˋ}\ltjruby{喜}{ㄏㄧˋ}\ltjruby{相}{ㄒㄧㆲ˪}\ltjruby{逢}{ㄏㆲˊ}。
-\vskip 1 cm
-\ltjruby{古}{ㄍㆦˋ}\ltjruby{今}{ㄍㄧㆬ}\ltjruby{多}{ㄉㄜ}\ltjruby{少}{ㄒㄧㄠˋ}\ltjruby{事}{ㄙㄨ˫}，\ltjruby{都}{ㄉㆦ}\ltjruby{付}{ㄏㄨ˪}\ltjruby{笑}{ㄑㄧㄠˋ}\ltjruby{談}{ㄉㆰˊ}\ltjruby{中}{ㄉㄧㆲ}。
-\vskip 1 cm
+\vskip 0.5 cm
+\ltjruby{古}{ㄍㆦˋ}\ltjruby{今}{ㄍㄧㆬ}\ltjruby{多}{ㄉㄜ}\ltjruby{少}{ㄒㄧㄠˋ}\ltjruby{事}{ㄙㄨ˫}，
+\vskip 0.5 cm
+\ltjruby{都}{ㄉㆦ}\ltjruby{付}{ㄏㄨ˪}\ltjruby{笑}{ㄑㄧㄠˋ}\ltjruby{談}{ㄉㆰˊ}\ltjruby{中}{ㄉㄧㆲ}。
 
 \end{document}
 

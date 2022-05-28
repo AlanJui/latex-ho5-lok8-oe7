@@ -1,2 +1,4 @@
 build/
-
+*.ltjruby
+*.pdf
+*.synctex.gz
