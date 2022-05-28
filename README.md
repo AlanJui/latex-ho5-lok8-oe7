@@ -23,6 +23,8 @@
 
 ![秦淮八艷．白話字](./pict/POJ.png)
 
+![臨江仙．方音符號](./pict/lualatex-lim-kang-sian.png)
+
 ## 文字橫排，注音於漢字右側
 
 版面文字「橫排」，「注音」置於「漢字」之右側：
@@ -34,4 +36,4 @@
 版面文字「直排」，「注音」置於「漢字」之右側：
  - 方音符號
 
-![臨江仙．方音符號](./pict/lualatex-lim-kang-sian.png)
+![臨江仙．方音符號．直排](./pict/lualatex-lim-kang-sian_ti-pai.png)
