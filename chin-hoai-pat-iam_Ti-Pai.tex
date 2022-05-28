@@ -1,0 +1,68 @@
+% !TEX program = lualatex
+\documentclass[tate,12pt]{jlreq}
+\usepackage[prefix=]{gckanbun}
+\usepackage[top=0.6in , bottom =0.7in , left=0.5in , right =0.8in]{geometry}
+
+\usepackage{luatexja-fontspec}
+\usepackage{xcolor}
+
+\pagestyle{empty}
+
+% 「漢字」使用字體
+% \setmainjfont{Noto Sans TC}
+% \setmainjfont{STSongti-TC-Regular}
+\setmainjfont{I.Ming-7.01.ttf}
+
+% 非「漢字」預設使字體
+% \setmainfont{Noto Sans TC}
+% \setmainfont{BopomofoRuby1909-v1-Regular.ttf}
+% \setmainfont{Iansui094-Regular}
+\setmainfont{Iansui094-Regular.ttf}
+
+% \ExplSyntaxOn
+% \xeCJKsetcharclass{"02C7}{"02C7}{\xeCJK_class_num:n{FullRight}}
+% \xeCJKsetcharclass{"02C9}{"02C9}{\xeCJK_class_num:n{FullRight}}
+% \xeCJKsetcharclass{"02CA}{"02CB}{\xeCJK_class_num:n{FullRight}}
+% \xeCJKsetcharclass{"02D9}{"02D9}{\xeCJK_class_num:n{FullRight}}
+% \ExplSyntaxOff
+
+
+\let\temp\ruby
+\renewcommand\ruby[2]{\temp
+  {\fontsize{26}{26}\selectfont#1}
+  {\fontsize{11}{11}\selectfont\textcolor{red}{#2}}
+}% end of \ruby...
+
+\usepackage{luatexja}
+\tfont\U=[NotoSansTC-Regular]:jfm=ujisv
+\def\TEST#1#2{\leavevmode\hbox{#1#2\string#2 “引用標點符號．” }}
+
+\begin{document}
+
+《
+\ruby{臨}{ㄌㄧㆬˊ}\U{ˊ}\ruby{江}{ㄍㄤ}\ruby{仙}{ㄒㄧㄢ}
+》
+\vskip 1.5 cm
+
+\ruby{滾}{ㄍㄨㄣˋ}\ruby{滾}{ㄍㄨㄣˋ}\ruby{長}{ㄉㄧㆲˊ}\ruby{江}{ㄍㄤ}\ruby{東}{ㄉㆲ}\ruby{逝}{ㄙㆤ˫}\ruby{水}{ㄙㄨㄧˋ}，
+\ruby{浪}{ㄌㆲ˫}\ruby{花}{ㄏㄨㄚ}\ruby{淘}{ㄉㄜˊ}\ruby{盡}{ㄐㄧㄣ˪}\ruby{英}{ㄧㄥ}\ruby{雄}{ㄏㄧㆲˊ}。
+\vskip 1.5 cm
+
+\ruby{是}{ㄒㄧ˫}\ruby{非}{ㄏㄨㄧ}\ruby{成}{ㄒㄧㄥˊ}\ruby{敗}{ㄅㄞ˫}\ruby{轉}{ㄗㄨㄢˋ}\ruby{頭}{ㄊㄧㄜˊ}\ruby{空}{ㄎㆲ}。
+\vskip 1.5cm
+
+\ruby{青}{ㄑㄧㄥ}\ruby{山}{ㄙㄢ}\ruby{依}{ㄧ}\ruby{舊}{ㄍㄧㄨ˫}\ruby{在}{ㄗㄞ˫}，
+\ruby{幾}{ㄍㄧˋ}\ruby{度}{ㄉㆦ˫}\ruby{夕}{ㄙㄧㆻ˙}\ruby{陽}{ㄧㆲˊ}\ruby{紅}{ㄏㆲˊ}。
+\vskip 1.5 cm
+
+\ruby{白}{ㄅㄧㆻ}\ruby{髮}{ㄏㄨㄚㆵ}\ruby{漁}{ㆣㄨˊ}\ruby{樵}{ㄐㄧㄠˊ}\ruby{江}{ㄍㄤ}\ruby{渚}{ㄗㄨˋ}\ruby{上}{ㄒㄧㆲ˫}，
+\ruby{慣}{ㄍㄨㄢ˪}\ruby{看}{ㄎㄢ˪}\ruby{秋}{ㄑㄧㄨ}\ruby{月}{ㆣㄨㄚㆵ˙}\ruby{春}{ㄘㄨㄣ}\ruby{風}{ㄏㆲ}。
+\vskip 1.5 cm
+
+\ruby{一}{ㄧㆵ}\ruby{壺}{ㄏㆦˊ}\ruby{濁}{ㄉㆦㆻ˙}\ruby{酒}{ㄐㄧㄨˋ}\ruby{喜}{ㄏㄧˋ}\ruby{相}{ㄒㄧㆲ˪}\ruby{逢}{ㄏㆲˊ}。
+\vskip 1.5 cm
+
+\ruby{古}{ㄍㆦˋ}\ruby{今}{ㄍㄧㆬ}\ruby{多}{ㄉㄜ}\ruby{少}{ㄒㄧㄠˋ}\ruby{事}{ㄙㄨ˫}，\ruby{都}{ㄉㆦ}\ruby{付}{ㄏㄨ˪}\ruby{笑}{ㄑㄧㄠˋ}\ruby{談}{ㄉㆰˊ}\ruby{中}{ㄉㄧㆲ}。
+\vskip 1.5 cm
+
+\end{document}

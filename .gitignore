@@ -1,4 +1,8 @@
 build/
 *.ltjruby
-*.pdf
+# *.pdf
 *.synctex.gz
+*.aux
+*.fdb_latexmk
+*.fls
+*.log
