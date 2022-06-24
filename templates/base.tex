@@ -1,0 +1,76 @@
+% !TEX program = lualatex
+\documentclass{article}%宣告一般論文
+\usepackage[top=0.6in , bottom =0.7in , left=0.5in , right =0.5in]{geometry}
+
+\usepackage{luatexja}
+%\ltjsetparameter{kanjiskip=2pt} \dimen0=\ltjgetparameter{kanjiskip}
+%\ltjsetparameter{talbaselineshift=0.1\zw}
+
+%===========================================================
+% 設定「漢字」與「注音」之排版格式
+%===========================================================
+
+% 當 LuaTeX-ja ，無「日文」可對映至「漢文」時，仍可顯示「中文」字形
+\usepackage{luatexja-fontspec}
+
+% 設定「注音符號」顯示於漢字之上方或下側用套件
+\usepackage{luatexja-ruby}
+% 設定「注音符號」顏色
+\usepackage{xcolor}
+
+%------------------------------
+% 設定漢字字型
+%------------------------------
+% 明體
+\setmainjfont{I.Ming-7.01.ttf}
+% 黑體
+%\setmainjfont{Noto Sans TC}
+
+%------------------------------
+% 設定注音字型
+%------------------------------
+% 方音符號用
+\setmainfont{BopomofoRuby1909-v1-Regular.ttf}
+% 白話字／台羅拚音／閩拼用：
+\newfontfamily\Bopomo{BopomofoRuby1909-v1-Regular.ttf}
+\newfontfamily\ZhuYin{Iansui094-Regular}
+\vskip 0.5 cm
+% 白話字注音用
+%\newfontfamily\ZhuYin{TaigiGenWanM-KN-L}
+
+% 注音置於漢字上方
+% \renewcommand{\rubysep}{0.1 ex}
+% 注音置於漢字下方
+% \renewcommand{\rubysep}{-1.5 ex}
+
+\usepackage{color}
+\usepackage{luatexja-ruby}
+\ltjsetruby{mode=01}             %设置振假名的「進入」和「突出」模式
+\ltjsetruby{rubysmash=true, intergap=-1.5}
+% \ltjsetruby{rubysmash=true, intergap=0.2}
+%\ltjsetruby{rubysmash=true}
+%\ltjsetruby{baseheight=-1}
+
+% \ltjsetruby{fontcmd=\Bopomo}    % 設定「注音」為：【方音符號】
+\ltjsetruby{fontcmd=\ZhuYin}    % 設定「注音」為：【白話字／台羅拼音／閩拼】
+\ltjsetruby{size=0.35}   % 設定「注音」使用字型
+
+\let\temp\ltjruby
+\renewcommand\ltjruby[2]{\temp
+  {\fontsize{26}{26}\selectfont{#1}}
+  {\textcolor{red}{#2}}
+}% end of \ruby...
+  % {\fontsize{12}{12}\selectfont\textcolor{red}{\ZhuYin{#2}}}
+
+
+\begin{document}
+
+\parindent 0pt
+\linespread{2.2}
+\fontsize{26}{26}
+\selectfont
+
+% ========== Begin ==========
+% ==========  End  ==========
+
+\end{document}

@@ -1,0 +1,630 @@
+%! TeX program = lualatex
+
+\documentclass{article}
+\usepackage[top=0.5in , bottom =0.3in , left=0.6in , right =0.6in]{geometry}
+%设置页边距
+
+\usepackage{luacode}
+%\usepackage[cwttf]{luatexja-zhfonts}
+%%% 適合中文的行間距。
+\renewcommand{\baselinestretch}{1.36}
+%%% 消除中文問號及驚嘆號後面多餘的空白。
+\def\exsp#1{\unskip#1\hspace{0em}}
+\begin{luacode}
+function dosub(s)
+  s = string.gsub(s, '！', '\\exsp！')
+  s = string.gsub(s, '？', '\\exsp？')
+  return(s)
+end
+\end{luacode}
+\AtBeginDocument{%
+  \luaexec{luatexbase.add_to_callback("process_input_buffer", dosub, "dosub")}%
+}
+
+% \let\temp\ruby
+% \renewcommand\ruby[2]{\temp
+%   {\cwTeXHeiBold\fontsize{32}{32}\selectfont#1}%
+%   {\Bopomo\textcolor{red}{#2}}
+%   }% end of \ruby...
+
+\usepackage{luatexja-otf,amsmath,bxghost}
+\usepackage[no-math]{fontspec}
+\usepackage[match]{luatexja-fontspec}
+%\usepackage[haranoaji]{luatexja-preset}\normalsize
+% 粗宋體
+% \setmainjfont{HaranoAjiMinchoTW-Heavy.otf}
+% 毛筆楷書
+%\setmainjfont{Bakudai-Medium.ttf}
+% 明體
+\setmainjfont{I.Ming-7.01.ttf}
+% \setmainjfont{PingFangTC-Regular}
+% \newfontfamily\Bopomo{BopomofoRuby1909-v1-Regular.ttf}
+\newfontfamily\Bopomo{Iansui094-Regular}
+% \newfontfamily\Bopomo{Arial}
+% \newfontfamily\Bopomo{TaigiGenWanM-KN-L}
+% \newfontfamily\Bopomo{PingFangTC-Regular}
+
+% 設定「漢字」間距
+% \renewcommand{\CJKglue}{\hskip 0.5cm \baselineskip}
+
+\usepackage{luatexja-ruby}
+\usepackage{xcolor}
+\ltjsetruby{size=0.3}            %设置振假名字号
+\ltjsetruby{fontcmd=\Bopomo}   %设置振假名字体
+\ltjsetruby{mode=00}             %设置振假名的「進入」和「突出」模式
+\ltjsetruby{rubysmash=false, intergap=0.2}
+
+\let\temp\ltjruby
+\renewcommand\ltjruby[2]{\temp
+  {\fontsize{26}{26}\selectfont{#1}}
+  {
+    \scriptsize\ltjsetparameter{yjabaselineshift=-5pt, yalbaselineshift=-5pt}
+    \fontsize{11}{11}\selectfont
+    \textcolor{red}{#2}
+  }
+}% end of \ruby...
+
+\begin{document}
+\linespread{2.2}
+\fontsize{26}{26}
+\selectfont
+% \noindent
+\parindent 0pt
+% ========== Begin ==========
+《\ltjruby{春}{tshun}\
+\ltjruby{望}{bōng}\
+》\vskip 0.5 cm
+\ltjruby{國}{kok}\
+\ltjruby{破}{phò}\
+\ltjruby{山}{san}\
+\ltjruby{河}{hô}\
+\ltjruby{在}{tsāi}\
+，\ltjruby{城}{sîng}\
+\ltjruby{春}{tshun}\
+\ltjruby{草}{tshó}\
+\ltjruby{木}{bo̍k}\
+\ltjruby{深}{tshim}\
+。\vskip 0.5 cm
+\ltjruby{感}{kám}\
+\ltjruby{時}{sî}\
+\ltjruby{花}{hua}\
+\ltjruby{濺}{tsiān}\
+\ltjruby{淚}{lūi}\
+，\ltjruby{恨}{hūn}\
+\ltjruby{別}{pia̍t}\
+\ltjruby{鳥}{niáu}\
+\ltjruby{驚}{king}\
+\ltjruby{心}{sim}\
+。\vskip 0.5 cm
+\ltjruby{烽}{hong}\
+\ltjruby{火}{hónn}\
+\ltjruby{連}{liân}\
+\ltjruby{三}{sam}\
+\ltjruby{月}{gua̍t}\
+，\ltjruby{家}{ka}\
+\ltjruby{書}{su}\
+\ltjruby{抵}{tí}\
+\ltjruby{萬}{bān}\
+\ltjruby{金}{kim}\
+。\vskip 0.5 cm
+\ltjruby{白}{pi̍k}\
+\ltjruby{頭}{thiô}\
+\ltjruby{搔}{so}\
+\ltjruby{更}{king}\
+\ltjruby{短}{tuán}\
+，\ltjruby{渾}{hûn}\
+\ltjruby{欲}{io̍k}\
+\ltjruby{不}{put}\
+\ltjruby{勝}{sìng}\
+\ltjruby{簪}{tsiam}\
+。\vskip 0.5 cm
+
+\clearpage
+《\ltjruby{登}{ting}\
+\ltjruby{高}{ko}\
+》\vskip 0.5 cm
+\ltjruby{風}{hong}\
+\ltjruby{急}{kip}\
+\ltjruby{天}{thian}\
+\ltjruby{高}{ko}\
+\ltjruby{猿}{uân}\
+\ltjruby{嘯}{siàu}\
+\ltjruby{哀}{ai}\
+，\vskip 0.2 cm
+\ltjruby{渚}{tsú}\
+\ltjruby{清}{tshing}\
+\ltjruby{沙}{sa}\
+\ltjruby{白}{pi̍k}\
+\ltjruby{鳥}{niáu}\
+\ltjruby{飛}{hui}\
+\ltjruby{回}{huê}\
+。\vskip 0.5 cm
+\ltjruby{無}{bû}\
+\ltjruby{邊}{pian}\
+\ltjruby{落}{lo̍k}\
+\ltjruby{木}{bo̍k}\
+\ltjruby{蕭}{siau}\
+\ltjruby{蕭}{siau}\
+\ltjruby{下}{hā}\
+，\vskip 0.2 cm
+\ltjruby{不}{put}\
+\ltjruby{盡}{tsīn}\
+\ltjruby{長}{tiông}\
+\ltjruby{江}{kang}\
+\ltjruby{滾}{kún}\
+\ltjruby{滾}{kún}\
+\ltjruby{來}{lâi}\
+。\vskip 0.5 cm
+\ltjruby{萬}{bān}\
+\ltjruby{里}{lí}\
+\ltjruby{悲}{pi}\
+\ltjruby{秋}{tshiu}\
+\ltjruby{常}{siông}\
+\ltjruby{作}{tsok}\
+\ltjruby{客}{khik}\
+，\vskip 0.2 cm
+\ltjruby{百}{pik}\
+\ltjruby{年}{liân}\
+\ltjruby{多}{to}\
+\ltjruby{病}{pīng}\
+\ltjruby{獨}{to̍k}\
+\ltjruby{登}{ting}\
+\ltjruby{台}{tâi}\
+。\vskip 0.5 cm
+\ltjruby{艱}{kan}\
+\ltjruby{難}{lân}\
+\ltjruby{苦}{khóo}\
+\ltjruby{恨}{hūn}\
+\ltjruby{繁}{huân}\
+\ltjruby{霜}{song}\
+\ltjruby{鬢}{pìn}\
+，\vskip 0.2 cm
+\ltjruby{潦}{ló}\
+\ltjruby{倒}{tó}\
+\ltjruby{新}{sin}\
+\ltjruby{停}{thîng}\
+\ltjruby{濁}{to̍k}\
+\ltjruby{酒}{tsiú}\
+\ltjruby{杯}{pue}\
+。\vskip 0.5 cm
+
+\clearpage
+《\ltjruby{蜀}{sio̍k}\
+\ltjruby{相}{siòng}\
+》\vskip 0.5 cm
+\ltjruby{丞}{sîng}\
+\ltjruby{相}{siòng}\
+\ltjruby{祠}{sû}\
+\ltjruby{堂}{tông}\
+\ltjruby{何}{hô}\
+\ltjruby{處}{tshú}\
+\ltjruby{尋}{sîm}\
+，\\
+\ltjruby{錦}{kím}\
+\ltjruby{官}{kuan}\
+\ltjruby{城}{sîng}\
+\ltjruby{外}{guē}\
+\ltjruby{柏}{pik}\
+\ltjruby{森}{sim}\
+\ltjruby{森}{sim}\
+。\vskip 0.5 cm
+\ltjruby{映}{iòng}\
+\ltjruby{階}{kai}\
+\ltjruby{碧}{phik}\
+\ltjruby{草}{tshó}\
+\ltjruby{自}{tsū}\
+\ltjruby{春}{tshun}\
+\ltjruby{色}{sik}\
+，\\
+\ltjruby{隔}{kik}\
+\ltjruby{葉}{ia̍p}\
+\ltjruby{黃}{hông}\
+\ltjruby{鸝}{lê}\
+\ltjruby{空}{khong}\
+\ltjruby{好}{hònn}\
+\ltjruby{音}{im}\
+。\vskip 0.5 cm
+\ltjruby{三}{sam}\
+\ltjruby{顧}{kòo}\
+\ltjruby{頻}{pîn}\
+\ltjruby{煩}{huân}\
+\ltjruby{天}{thian}\
+\ltjruby{下}{hā}\
+\ltjruby{計}{kè}\
+，\\
+\ltjruby{兩}{lióng}\
+\ltjruby{朝}{tiâu}\
+\ltjruby{開}{khai}\
+\ltjruby{濟}{tsè}\
+\ltjruby{老}{ló}\
+\ltjruby{臣}{sîn}\
+\ltjruby{心}{sim}\
+。\vskip 0.5 cm
+\ltjruby{出}{tshut}\
+\ltjruby{師}{su}\
+\ltjruby{未}{bī}\
+\ltjruby{捷}{tsia̍p}\
+\ltjruby{身}{sing}\
+\ltjruby{先}{sian}\
+\ltjruby{死}{sú}\
+，\\
+\ltjruby{長}{tiông}\
+\ltjruby{使}{sú}\
+\ltjruby{英}{ing}\
+\ltjruby{雄}{hiông}\
+\ltjruby{淚}{lūi}\
+\ltjruby{滿}{buàn}\
+\ltjruby{襟}{khim}\
+。\vskip 0.5 cm
+
+\clearpage
+《\ltjruby{江}{kang}\
+\ltjruby{南}{lâm}\
+\ltjruby{逢}{hông}\
+\ltjruby{李}{lí}\
+\ltjruby{龜}{kui}\
+\ltjruby{年}{liân}\
+》\vskip 0.5 cm
+\ltjruby{岐}{kî}\
+\ltjruby{王}{ông}\
+\ltjruby{宅}{thi̍k}\
+\ltjruby{里}{lí}\
+\ltjruby{尋}{sîm}\
+\ltjruby{常}{siông}\
+\ltjruby{見}{kiàn}\
+，\\
+\ltjruby{崔}{tshui}\
+\ltjruby{九}{kiú}\
+\ltjruby{堂}{tông}\
+\ltjruby{前}{tsiân}\
+\ltjruby{幾}{kí}\
+\ltjruby{度}{tō}\
+\ltjruby{聞}{bûn}\
+。\vskip 0.5 cm
+\ltjruby{正}{tsìng}\
+\ltjruby{是}{si}\
+\ltjruby{江}{kang}\
+\ltjruby{南}{lâm}\
+\ltjruby{好}{hònn}\
+\ltjruby{風}{hong}\
+\ltjruby{景}{kíng}\
+，\\
+\ltjruby{落}{lo̍k}\
+\ltjruby{花}{hua}\
+\ltjruby{時}{sî}\
+\ltjruby{節}{tseh}\
+\ltjruby{又}{iū}\
+\ltjruby{逢}{hông}\
+\ltjruby{君}{kun}\
+。\vskip 0.5 cm
+
+\clearpage
+《\ltjruby{月}{gua̍t}\
+\ltjruby{夜}{iā}\
+》\vskip 0.5 cm
+\ltjruby{今}{kim}\
+\ltjruby{夜}{iā}\
+\ltjruby{鄜}{hu}\
+\ltjruby{州}{tsiu}\
+\ltjruby{月}{gua̍t}\
+，\ltjruby{閨}{kui}\
+\ltjruby{中}{tiòng}\
+\ltjruby{只}{tsí}\
+\ltjruby{獨}{to̍k}\
+\ltjruby{看}{khàn}\
+。\vskip 0.5 cm
+\ltjruby{遙}{iâu}\
+\ltjruby{憐}{liân}\
+\ltjruby{小}{siáu}\
+\ltjruby{兒}{jî}\
+\ltjruby{女}{lú}\
+，\ltjruby{未}{bī}\
+\ltjruby{解}{kái}\
+\ltjruby{憶}{ik}\
+\ltjruby{長}{tióng}\
+\ltjruby{安}{an}\
+。\vskip 0.5 cm
+\ltjruby{香}{hiong}\
+\ltjruby{霧}{bū}\
+\ltjruby{雲}{hûn}\
+\ltjruby{鬟}{huân}\
+\ltjruby{濕}{sip}\
+，\ltjruby{清}{tshing}\
+\ltjruby{輝}{hui}\
+\ltjruby{玉}{gio̍k}\
+\ltjruby{臂}{pì}\
+\ltjruby{寒}{hân}\
+。\vskip 0.5 cm
+\ltjruby{何}{hô}\
+\ltjruby{時}{sî}\
+\ltjruby{倚}{í}\
+\ltjruby{虛}{hu}\
+\ltjruby{幌}{hiù}\
+，\ltjruby{雙}{song}\
+\ltjruby{照}{tsiàu}\
+\ltjruby{淚}{lūi}\
+\ltjruby{痕}{hûn}\
+\ltjruby{干}{kan}\
+。\vskip 0.5 cm
+
+\clearpage
+《\ltjruby{夢}{bōng}\
+\ltjruby{李}{lí}\
+\ltjruby{白}{pi̍k}\
+》\vskip 0.5 cm
+\ltjruby{浮}{hû}\
+\ltjruby{雲}{hûn}\
+\ltjruby{終}{tsiong}\
+\ltjruby{日}{ji̍t}\
+\ltjruby{行}{hîng}\
+，\ltjruby{遊}{iû}\
+\ltjruby{子}{tsú}\
+\ltjruby{久}{kiú}\
+\ltjruby{不}{put}\
+\ltjruby{至}{tsì}\
+。\vskip 0.5 cm
+\ltjruby{三}{sam}\
+\ltjruby{夜}{iā}\
+\ltjruby{頻}{pîn}\
+\ltjruby{夢}{bōng}\
+\ltjruby{君}{kun}\
+，\ltjruby{情}{tsîng}\
+\ltjruby{親}{tshin}\
+\ltjruby{見}{kiàn}\
+\ltjruby{君}{kun}\
+\ltjruby{意}{ì}\
+。\vskip 0.5 cm
+\ltjruby{告}{kò}\
+\ltjruby{歸}{kui}\
+\ltjruby{常}{siông}\
+\ltjruby{侷}{kio̍k}\
+\ltjruby{促}{tshiok}\
+，\ltjruby{苦}{khóo}\
+\ltjruby{道}{tō}\
+\ltjruby{來}{lâi}\
+\ltjruby{不}{put}\
+\ltjruby{易}{i̍k}\
+。\vskip 0.5 cm
+\ltjruby{江}{kang}\
+\ltjruby{湖}{ôo}\
+\ltjruby{多}{to}\
+\ltjruby{風}{hong}\
+\ltjruby{波}{pho}\
+，\ltjruby{舟}{tsiu}\
+\ltjruby{楫}{tship}\
+\ltjruby{恐}{khióng}\
+\ltjruby{失}{sit}\
+\ltjruby{墜}{tūi}\
+。\vskip 0.5 cm
+\ltjruby{出}{tshut}\
+\ltjruby{門}{bûn}\
+\ltjruby{搔}{so}\
+\ltjruby{白}{pi̍k}\
+\ltjruby{首}{siú}\
+，\ltjruby{若}{jio̍k}\
+\ltjruby{負}{hū}\
+\ltjruby{平}{pîng}\
+\ltjruby{生}{sing}\
+\ltjruby{志}{tsì}\
+。\vskip 0.5 cm
+\ltjruby{冠}{kuan}\
+\ltjruby{蓋}{kài}\
+\ltjruby{滿}{buán}\
+\ltjruby{京}{king}\
+\ltjruby{華}{huâ}\
+，\ltjruby{斯}{su}\
+\ltjruby{人}{jîn}\
+\ltjruby{獨}{to̍k}\
+\ltjruby{憔}{tsiâu}\
+\ltjruby{悴}{tsūi}\
+。\vskip 0.5 cm
+\ltjruby{孰}{sio̍k}\
+\ltjruby{雲}{hûn}\
+\ltjruby{網}{bóng}\
+\ltjruby{恢}{khue}\
+\ltjruby{恢}{khue}\
+，\ltjruby{將}{tsiong}\
+\ltjruby{老}{nóo}\
+\ltjruby{身}{sin}\
+\ltjruby{反}{huán}\
+\ltjruby{累}{lūi}\
+。\vskip 0.5 cm
+\ltjruby{千}{tshian}\
+\ltjruby{秋}{tshiu}\
+\ltjruby{萬}{bān}\
+\ltjruby{歲}{suè}\
+\ltjruby{名}{bîng}\
+，\ltjruby{寂}{tsi̍k}\
+\ltjruby{寞}{bo̍k}\
+\ltjruby{身}{sin}\
+\ltjruby{後}{hiō}\
+\ltjruby{事}{sū}\
+。\vskip 0.5 cm
+
+\clearpage
+《\ltjruby{飲}{im}\
+\ltjruby{中}{tiòng}\
+\ltjruby{八}{pat}\
+\ltjruby{仙}{sian}\
+\ltjruby{歌}{ko}\
+》\vskip 0.5 cm
+\ltjruby{知}{ti}\
+\ltjruby{章}{tsiong}\
+\ltjruby{騎}{khî}\
+\ltjruby{馬}{má}\
+\ltjruby{似}{sū}\
+\ltjruby{乘}{sīng}\
+\ltjruby{船}{tsûn}\
+，\\
+\ltjruby{眼}{gán}\
+\ltjruby{花}{hua}\
+\ltjruby{落}{lo̍k}\
+\ltjruby{井}{tsíng}\
+\ltjruby{水}{súi}\
+\ltjruby{底}{tí}\
+\ltjruby{眠}{biân}\
+。\vskip 0.5 cm
+\ltjruby{汝}{jú}\
+\ltjruby{陽}{iông}\
+\ltjruby{三}{sàm}\
+\ltjruby{斗}{tóo}\
+\ltjruby{始}{sú}\
+\ltjruby{朝}{tiâu}\
+\ltjruby{天}{thian}\
+，\\
+\ltjruby{道}{tōo}\
+\ltjruby{逢}{hông}\
+\ltjruby{麴}{khiok}\
+\ltjruby{車}{khi}\
+\ltjruby{口}{khió}\
+\ltjruby{流}{liû}\
+\ltjruby{涎}{siân}\
+，\\
+\ltjruby{恨}{hūn}\
+\ltjruby{不}{put}\
+\ltjruby{移}{î}\
+\ltjruby{封}{hong}\
+\ltjruby{向}{hiòng}\
+\ltjruby{酒}{tsiú}\
+\ltjruby{泉}{tsuân}\
+。\vskip 0.5 cm
+\ltjruby{左}{tsó}\
+\ltjruby{相}{siong}\
+\ltjruby{日}{ji̍t}\
+\ltjruby{興}{hing}\
+\ltjruby{費}{hùi}\
+\ltjruby{萬}{bān}\
+\ltjruby{錢}{tsiân}\
+，\\
+\ltjruby{飲}{ím}\
+\ltjruby{如}{jû}\
+\ltjruby{長}{tiông}\
+\ltjruby{鯨}{king}\
+\ltjruby{吸}{khip}\
+\ltjruby{百}{pik}\
+\ltjruby{川}{tshuan}\
+，\\
+\ltjruby{銜}{hâm}\
+\ltjruby{杯}{pue}\
+\ltjruby{樂}{lo̍k}\
+\ltjruby{聖}{sìng}\
+\ltjruby{稱}{tsing}\
+\ltjruby{避}{pī}\
+\ltjruby{賢}{hiân}\
+。\vskip 0.5 cm
+\ltjruby{宗}{tsong}\
+\ltjruby{之}{tsi}\
+\ltjruby{瀟}{siau}\
+\ltjruby{灑}{sá}\
+\ltjruby{美}{bí}\
+\ltjruby{少}{siáu}\
+\ltjruby{年}{liân}\
+，\\
+\ltjruby{舉}{kí}\
+\ltjruby{觴}{siong}\
+\ltjruby{白}{pi̍k}\
+\ltjruby{眼}{gán}\
+\ltjruby{望}{bōng}\
+\ltjruby{青}{tshing}\
+\ltjruby{天}{thian}\
+，\\
+\ltjruby{皎}{kiáu}\
+\ltjruby{如}{jû}\
+\ltjruby{玉}{gio̍k}\
+\ltjruby{樹}{sū}\
+\ltjruby{臨}{lîm}\
+\ltjruby{風}{hong}\
+\ltjruby{前}{tsiân}\
+。\vskip 0.5 cm
+\ltjruby{蘇}{soo}\
+\ltjruby{晉}{tsìn}\
+\ltjruby{長}{tiông}\
+\ltjruby{齋}{tsai}\
+\ltjruby{繡}{siù}\
+\ltjruby{佛}{hu̍t}\
+\ltjruby{前}{tsiân}\
+，\\
+\ltjruby{醉}{tsùi}\
+\ltjruby{中}{tiòng}\
+\ltjruby{往}{óng}\
+\ltjruby{往}{óng}\
+\ltjruby{愛}{ài}\
+\ltjruby{逃}{tô}\
+\ltjruby{禪}{siân}\
+。\vskip 0.5 cm
+\ltjruby{李}{lí}\
+\ltjruby{白}{pi̍k}\
+\ltjruby{斗}{tóo}\
+\ltjruby{酒}{tsiú}\
+\ltjruby{詩}{si}\
+\ltjruby{百}{pik}\
+\ltjruby{篇}{phian}\
+，\\
+\ltjruby{長}{tiông}\
+\ltjruby{安}{an}\
+\ltjruby{市}{tshī}\
+\ltjruby{上}{siōng}\
+\ltjruby{酒}{tshiú}\
+\ltjruby{家}{ka}\
+\ltjruby{眠}{biân}\
+，\\
+\ltjruby{天}{thian}\
+\ltjruby{子}{tsú}\
+\ltjruby{呼}{hoo}\
+\ltjruby{來}{lâi}\
+\ltjruby{不}{put}\
+\ltjruby{上}{siōng}\
+\ltjruby{船}{tsûn}\
+，\\
+\ltjruby{自}{tsū}\
+\ltjruby{稱}{tshing}\
+\ltjruby{臣}{sîn}\
+\ltjruby{是}{sī}\
+\ltjruby{酒}{tsiú}\
+\ltjruby{中}{tiong}\
+\ltjruby{仙}{sian}\
+。\vskip 0.5 cm
+\ltjruby{張}{tiong}\
+\ltjruby{旭}{hiok}\
+\ltjruby{三}{sàm}\
+\ltjruby{杯}{pue}\
+\ltjruby{草}{tshó}\
+\ltjruby{聖}{sìng}\
+\ltjruby{傳}{thuân}\
+，\\
+\ltjruby{脫}{thuat}\
+\ltjruby{帽}{bō}\
+\ltjruby{露}{lō}\
+\ltjruby{頂}{thíng}\
+\ltjruby{王}{ông}\
+\ltjruby{公}{kong}\
+\ltjruby{前}{tsiân}\
+，\\
+\ltjruby{揮}{hui}\
+\ltjruby{毫}{hô}\
+\ltjruby{落}{lo̍k}\
+\ltjruby{紙}{tsuá}\
+\ltjruby{如}{jûi}\
+\ltjruby{雲}{hûn}\
+\ltjruby{煙}{ian}\
+。\vskip 0.5 cm
+\ltjruby{焦}{tsiau}\
+\ltjruby{遂}{sūi}\
+\ltjruby{五}{ngóo}\
+\ltjruby{斗}{tóo}\
+\ltjruby{方}{hong}\
+\ltjruby{卓}{tok}\
+\ltjruby{然}{jiân}\
+，\\
+\ltjruby{高}{ko}\
+\ltjruby{談}{tâm}\
+\ltjruby{雄}{hiông}\
+\ltjruby{辯}{piān}\
+\ltjruby{驚}{king}\
+\ltjruby{四}{sù}\
+\ltjruby{筵}{iân}\
+。\vskip 0.5 cm
+
+% ==========  End  ==========
+
+\end{document}
