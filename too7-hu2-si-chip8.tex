@@ -48,6 +48,7 @@ end
 % \renewcommand{\CJKglue}{\hskip 0.5cm \baselineskip}
 
 \usepackage{luatexja-ruby}
+\usepackage{luatexja-fontspec}
 \usepackage{xcolor}
 \ltjsetruby{size=0.3}            %设置振假名字号
 \ltjsetruby{fontcmd=\Bopomo}   %设置振假名字体
@@ -65,8 +66,9 @@ end
 }% end of \ruby...
 
 \begin{document}
+% \large
+% \fontsize{26}{26}
 \linespread{2.2}
-\fontsize{26}{26}
 \selectfont
 % \noindent
 \parindent 0pt
