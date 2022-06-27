@@ -1,7 +1,9 @@
 % !TEX program = lualatex
-\documentclass{article}%宣告一般論文
-\usepackage[top=0.6in , bottom =0.7in , left=0.5in , right =0.5in]{geometry}
+\documentclass[a4paper]{article}%宣告一般論文
+% \usepackage[margin=1in]{geometry}
+\usepackage[top=0.5in , bottom=1.0in , left=0.75in , right=1.5in]{geometry}
 
+\usepackage{graphicx}
 \usepackage{luatexja}
 %\ltjsetparameter{kanjiskip=2pt} \dimen0=\ltjgetparameter{kanjiskip}
 %\ltjsetparameter{talbaselineshift=0.1\zw}
@@ -53,7 +55,7 @@
 
 % \ltjsetruby{fontcmd=\Bopomo}    % 設定「注音」為：【方音符號】
 \ltjsetruby{fontcmd=\ZhuYin}    % 設定「注音」為：【白話字／台羅拼音／閩拼】
-\ltjsetruby{size=0.35}   % 設定「注音」使用字型
+\ltjsetruby{size=0.45}   % 設定「注音」使用字型
 
 \let\temp\ltjruby
 \renewcommand\ltjruby[2]{\temp
@@ -69,6 +71,19 @@
 \linespread{2.2}
 \fontsize{26}{26}
 \selectfont
+
+\begin{figure}
+\centering
+\includegraphics[width=6.00in,height=4.00in]{./pict/cheng3-khi3-ko.jpeg}
+\label{fig:graph}
+\end{figure}
+
+\begin{center}
+\ltjruby{《}{}\
+
+\ltjruby{》}{}\
+\end{center}
+\vskip 0.5 cm
 
 % ========== Begin ==========
 % ==========  End  ==========
